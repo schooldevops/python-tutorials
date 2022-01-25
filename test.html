@@ -1,0 +1,65 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
+<script>
+  (function() {
+    "use strict";
+    window.addEventListener("load", function() {
+      var form = document.getElementById("needs-validation");
+      form.addEventListener("submit", function(event) {
+        if (form.checkValidity() == false) {
+          event.preventDefault();
+          event.stopPropagation();
+          form.classList.add("was-validated");
+        }
+        
+        // 서버 연동 처리
+      }, false);
+    }, false);
+  }());
+</script>
+
+<div class="container">
+  <p class="h1">Register</p>
+ 
+  <form id="needs-validation" novalidate="">
+    <div class="form-group">
+      <label for="id">아이디</label>
+      <input type="text" class="form-control" id="id" placeholder="아이디" required="" minlength="4">
+      <div class="valid-feedback">
+        Looks good!
+      </div>
+      <div class="invalid-feedback">
+        아이디는 4자 이상 입력해야 합니다.
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label for="name">성명</label>
+      <input type="text" class="form-control" id="name" placeholder="성명" required="" pattern="^[가-힣]{2,5}$">
+      <div class="valid-feedback">
+        Great!
+      </div>
+      <div class="invalid-feedback">
+        한글로 시작하는 2~5 이내로 입력하세요.
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label for="email">E-mail</label>
+      <input type="email" class="form-control" id="email" placeholder="E-mail" required="" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" >
+      <div class="valid-feedback">
+        Looks good!
+      </div>
+      <div class="invalid-feedback">
+        이메일 형식으로 입력해야 합니다.
+      </div>
+    </div>
+ 
+    <div class="form-group mt-3">
+      <button class="btn btn-primary" type="submit">Register!</button>
+    </div>
+  </form>
+</div>  
